@@ -15,7 +15,7 @@ println(part1(input))
 
 # Part 2 ----------------------------------------------------------------------------------
 
-part2(input) = sum(sum(input[i:i+2]) > sum(input[i-1:i+1]) for i = 2:lastindex(input)-2)
+part2(input) = sum(sum(@view input[i:i+2]) > sum(@view input[i-1:i+1]) for i = 2:lastindex(input)-2)
 println(part2(input))
 @benchmark part2($input)
 
