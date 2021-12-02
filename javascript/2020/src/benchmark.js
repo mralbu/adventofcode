@@ -12,6 +12,10 @@ suite
     day02();
   })
   .on("cycle", function (event) {
-    console.log(event.target.toString());
+    console.log(
+      `${event.target.name}: ${
+        Math.round(event.target.stats.mean * 1e6 * 10) / 10
+      } ± ${Math.round(event.target.stats.deviation * 1e6 * 10) / 10} μs`
+    );
   })
   .run({ async: true });
