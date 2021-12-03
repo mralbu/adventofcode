@@ -29,9 +29,9 @@ function part1(input)
     return depth * horizontal
 end
 
-println(part1(sample))
-println(part1(input))
-@benchmark part1($input)
+println("Part1 (sample): $(part1(sample))")
+println("Part1: $(part1(input))\n")
+# @benchmark part1($input)
 
 # Part 2 ----------------------------------------------------------------------------------
 
@@ -53,6 +53,6 @@ function part2(input)
     return depth * horizontal
 end
 
-println(part2(sample))
-println(part2(input))
-@benchmark part2($input)
+println("Part2 (sample): $(part2(sample))")
+println("Part2: $(part2(input))\n")
+# @benchmark part2($input)
