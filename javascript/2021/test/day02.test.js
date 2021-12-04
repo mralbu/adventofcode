@@ -1,6 +1,6 @@
 const { part1, part2, day02 } = require("../src/day02.js");
 
-test("day01", () => {
+test("day02", () => {
   let sample = [
     "forward 5",
     "down 5",

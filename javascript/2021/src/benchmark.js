@@ -1,6 +1,7 @@
 const Benchmark = require("benchmark");
 const { day01 } = require("../src/day01.js");
 const { day02 } = require("../src/day02.js");
+const { day03 } = require("../src/day03.js");
 
 let suite = new Benchmark.Suite();
 
@@ -10,6 +11,9 @@ suite
   })
   .add("Day02", function () {
     day02();
+  })
+  .add("Day03", function () {
+    day03();
   })
   .on("cycle", function (event) {
     console.log(

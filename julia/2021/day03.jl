@@ -55,13 +55,12 @@ function most_common_bit(input; pos = 1)
 end
 least_common_bit(input; pos = 1) = !most_common_bit(input; pos = pos)
 
-filter_by_firstbit(input, pos, bit) = [line for line in input if parse(Int, line[pos]) == bit]
+filter_by_bitposition(input, pos, bit) = [line for line in input if parse(Int, line[pos]) == bit]
 
 function device_rating(input, bit_evaluation)
     position = 1
-    while length(input) > 1
-        input_candidate = filter_by_firstbit(input, position, bit_evaluation(input; pos = position))
-        input = length(input_candidate) >= 1 ? input_candidate : break
+    while length(input) != 1
+        input = filter_by_bitposition(input, position, bit_evaluation(input; pos = position))
         position += 1
     end
     return input[1]
