@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "benchmark": "node ./src/benchmark.js"
+    "benchmark": "node ./src/benchmark.js",
+    "build": "node ./src/day04.js"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +14,9 @@
     "benchmark": "^2.1.4",
     "jest": "^27.4.2",
     "microtime": "^3.0.0"
+  },
+  "dependencies": {
+    "mathjs": "^10.0.0",
+    "ramda": "^0.27.1"
   }
 }
