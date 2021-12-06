@@ -1,5 +1,3 @@
-using DataStructures: DefaultDict
-
 sample = """
 0,9 -> 5,9
 8,0 -> 0,8
@@ -25,7 +23,7 @@ end
 line_length(line::NamedTuple) = max(abs(line.x1 - line.x2), abs(line.y1 - line.y2))
 
 function coord_intersects(lines::AbstractVector{NamedTuple})
-    coord_inter = DefaultDict(0)
+    coord_inter = zeros(Int, 1000, 1000)
     for line in lines
         x1, y1, x2, y2 = line
 
@@ -37,12 +35,12 @@ function coord_intersects(lines::AbstractVector{NamedTuple})
 
         x, y = x1, y1
         for _ = 0:line_length(line)
-            coord_inter[(x, y)] += 1
+            coord_inter[x, y] += 1
             x != x2 && (x += Δx)
             y != y2 && (y += Δy)
         end
     end
-    return coord_inter
+    return count(>(1), coord_inter)
 end
 
 function main()
@@ -51,10 +49,10 @@ function main()
     lines = process_input(input)
 
     hv_lines = filter(l -> l.x1 == l.x2 || l.y1 == l.y2, lines)
-    part1 = filter(d -> d.second >= 2, coord_intersects(hv_lines))
-    part2 = filter(d -> d.second >= 2, coord_intersects(lines))
+    part1 = coord_intersects(hv_lines)
+    part2 = coord_intersects(lines)
 
-    return length(part1), length(part2)
+    return part1, part2
 end
 
 println(main())
