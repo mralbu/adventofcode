@@ -12,15 +12,19 @@ apt-get install -y \
   openssl
 
 ## Install rustup and common components
-curl https://sh.rustup.rs -sSf | sh -s -- -y 
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+
+source "$HOME/.cargo/env"
+
 rustup install nightly
 rustup component add rustfmt
 rustup component add rustfmt --toolchain nightly
-rustup component add clippy 
+rustup component add clippy
 rustup component add clippy --toolchain nightly
 
 cargo install cargo-expand
 cargo install cargo-edit
+cargo install irust
 
 ## setup and install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
