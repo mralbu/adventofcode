@@ -9,6 +9,7 @@ apt-get install -y \
   zsh \
   vim \
   build-essential \
+  pkg-config \
   openssl
 
 ## Install rustup and common components
@@ -24,6 +25,8 @@ rustup component add clippy --toolchain nightly
 
 cargo install cargo-expand
 cargo install cargo-edit
+cargo install racer
+cargo install cargo-show-asm
 cargo install irust
 
 ## setup and install oh-my-zsh
